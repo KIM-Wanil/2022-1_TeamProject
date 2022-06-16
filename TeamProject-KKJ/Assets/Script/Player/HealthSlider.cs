@@ -30,17 +30,29 @@ public class HealthSlider : MonoBehaviour
         {
             healthBarSlider.value -= 0.0111f;
         }
+        if (collision.gameObject.tag == "BombEnemy" && healthBarSlider.value > 0)
+        {
+            healthBarSlider.value -= 0.0051f;
+        }
         if (collision.gameObject.tag == "Health")
         {
             healthBarSlider.value += 0.01f;
   
         }
-
+        
 
         if (healthBarSlider.value == 0)
         {
             SceneManager.LoadScene("Failure");
         }
 
+    }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "BigEnemy")
+        {
+            healthBarSlider.value -= 0.1061f;
+
+        }
     }
 }

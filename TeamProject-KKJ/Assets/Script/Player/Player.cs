@@ -10,9 +10,12 @@ public class Player : MonoBehaviour
     public float rotationSpeed = 360f; // 회전 속도 지정
     public float gravity;    // 캐릭터에게 작용하는 중력.
     private CharacterController controller; // 현재 캐릭터가 가지고있는 캐릭터 컨트롤러 콜라이더.
-    private Vector3 MoveDir;                // 캐릭터의 움직이는 방향.
+    private Vector3 MoveDir;
+    public GameObject avator;
+    // 캐릭터의 움직이는 방향.
     Animator animator;
-
+    bool isDamage;
+    MeshRenderer[] meshs;
     //public Button gameOverText;
     //private bool isGameOver = false;
     // Start is called before the first frame update
@@ -21,7 +24,7 @@ public class Player : MonoBehaviour
         MoveDir = Vector3.zero;
         controller = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
-
+        meshs = GetComponentsInChildren<MeshRenderer>();
         //gameOverText.enabled = false;
     }
 
@@ -68,8 +71,5 @@ public class Player : MonoBehaviour
 
 
     }
-    void OnTriggerEnter(Collider other)
-    {
-       
-    }
+
 }
